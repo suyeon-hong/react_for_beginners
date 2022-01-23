@@ -20,13 +20,14 @@ function Home() {
     }, []);
 
     return(
-        <div style={{width: "100%", display: "flex", flexWrap: "wrap", justifyContent:"space-between", padding: "100px 50px"}}>
+        <div style={{width: "100%", display: "flex", flexWrap: "wrap", justifyContent:"space-between"}}>
             {loading ? "Loading..." : movies.map((movie) => (
             <Movie 
                 key={movie.id}
                 id={movie.id}
                 coverImg={movie.medium_cover_image}
                 title={movie.title}
+                year={movie.year}
                 summary={movie.summary.length > 320 ? `${movie.summary.slice(0, 320)}...` : movie.summary }
                 genres={movie.genres}
             />

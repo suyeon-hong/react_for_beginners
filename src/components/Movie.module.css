@@ -17,10 +17,14 @@
     box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
 }
 .title{
-    display: block;
     font: bold 20px/1 'arial';
     color: #000;
-    margin-bottom: 20px;
+}
+.year{
+    display: block;
+    font: 12px/1 'arial';
+    color: #777;
+    margin: 5px 0 10px;
 }
 .description{
     font: 15px/1.4 'arial';

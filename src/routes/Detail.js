@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from 'react/cjs/react.development';
 export default function Detail() {
     const { id } = useParams();
     const [ movies, setMovies ] = useState([]);
+    const [ loading, setLoading ] = useState(true);
 
     const getMovie = useCallback(async () =>{
         const json = await(
@@ -12,6 +13,7 @@ export default function Detail() {
             )
         ).json()
         setMovies(json.data.movie);
+        setLoading(false);
     }, [id])
 
     useEffect(()=>{
@@ -19,12 +21,13 @@ export default function Detail() {
     }, [getMovie])
     return(
         <>
-            <Link to="/">Home</Link>
-            <h1>Detail Page</h1>
-            <div>
+            <Link to="/" style={{font: "bold 16px/1 arial", color: "tomato"}}>HOME</Link>
+            <h1 style={{font: "bold 20px/1 arial", color: "#000"}}>Detail Page</h1>
+            {loading ? "Loading..." : <div>
                 <img src={movies.medium_cover_image} alt={movies.title} />
                 <p>{movies.description_full}</p>
-            </div>
+            </div>}
+            
         </>
     )
 }
